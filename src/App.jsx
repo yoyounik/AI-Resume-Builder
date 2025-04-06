@@ -16,14 +16,23 @@ function App() {
 
 
     return (
-        <div className="App">
-            {/* Render the Resume Form */}
-            <ResumeForm onSubmit={handleResumeSubmit} />
-            
-            {/* Conditionally render the Resume Preview if resume data is available */}
-            {resumeData && <ResumePreview resume={resumeData} />}
+        <div className="min-h-screen bg-gray-100 py-8">
+            <div className="container mx-auto px-4">
+                <header className="text-center mb-8">
+                    <h1 className="text-4xl font-bold text-gray-800">AI Resume Builder</h1>
+                    <p className="text-gray-600 mt-2">Create your professional resume with AI assistance</p>
+                </header>
 
-            <AIComponent />
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <ResumeForm onSubmit={handleResumeSubmit} />
+                        <AIComponent />
+                    </div>
+                    <div>
+                        {resumeData && <ResumePreview resume={resumeData} />}
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
